@@ -46,6 +46,8 @@ features = ['State Code', 'Type', 'Area']
 Y =  df['Production']
 # Define target variables for each crop
 
+
+
   
 # Prepare input data for each crop
 X = df[features]
@@ -92,19 +94,28 @@ print("rmse", rmse)
 print("mae", mae)
 print("percentageError", f"{round(percentage_error)}%")
 
-@app.get("/test-model")
-def testModel(state:str, type:str, area:float):
+
+def calculate_result(state:str, type:str, area:float):
 
     try:
         new_data = {
-            'State Code': label_encoder.transform([state.capitalize()])[0],
+            'State Code': label_encoder.transform([state.title()])[0],
             'Type':label_encoder2.transform([type.upper()])[0],
             'Area': area
         }
         input_df = pd.DataFrame([new_data])
         predicted_value = model.predict(input_df[features])
-        return {"Production": predicted_value[0]}
+        return predicted_value[0]
 
-    except ValueError:
+    except ValueError as ve:
+         print(ve)
+         print("Invalid state")
          return {"Error": "Invalid State or type or area"}
 
+res = calculate_result("punjab","rice",2000000000)
+print("Test Res:")
+print(res)
+
+res2 = calculate_result("punjab","rice",200000000000000000000000000000000)
+print("Test Res2:")
+print(res2)

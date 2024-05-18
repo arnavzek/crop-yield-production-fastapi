@@ -22,6 +22,9 @@ typing-extensions = "==4.11.0"
 uvicorn = "*"
 pandas = "*"
 scikit-learn = "*"
+sqlalchemy = "*"
+databases = "*"
+aiosqlite = "*"
 
 [dev-packages]
 
