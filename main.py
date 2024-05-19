@@ -6,6 +6,9 @@ from app.crud import  create_user, get_user, get_user_from_token, save_result, g
 from app.calculate_result import calculate_result
 from fastapi.middleware.cors import CORSMiddleware
 from app.send_error import send_error
+from keep_alive import keep_alive
+
+keep_alive()
 
 metadata.create_all(engine)
 
