@@ -7,26 +7,26 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 
-app = FastAPI()
+# app = FastAPI()
 
-origins = ["*"]
+# origins = ["*"]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 
-@app.get("/")
-def home():
-    return {"Data":"hello world"}
+# @app.get("/")
+# def home():
+#     return {"Data":"hello world"}
 
-print("Server started on http://127.0.0.1:8000/")
+# print("Server started on http://127.0.0.1:8000/")
 
-print("You can test the model using the following url: http://127.0.0.1:8000/test-model?state=Chhattisgarh&type=rice&area=100")
+# print("You can test the model using the following url: http://127.0.0.1:8000/test-model?state=Chhattisgarh&type=rice&area=100")
 
 print("Training.....")
 
