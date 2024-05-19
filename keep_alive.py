@@ -12,6 +12,6 @@ def send_request(url):
 
 def keep_alive():
     print("Keeping Alive")
-    threading.Timer(5.0, keep_alive).start()
+    threading.Timer(30.0, keep_alive).start()
     url = "https://crop-yield-production-fastapi.onrender.com/yields/?state=rajasthan&area=200"  # Replace with your desired URL
     send_request(url)
